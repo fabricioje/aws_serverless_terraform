@@ -2,4 +2,3 @@
 * sls deploy - faz o deploy dos dados
 * sls remove - comando parecido com o terraform destroy, remove as funções lambdas
 * sls deploy --stage (ambiente) - Comando para fazer deploy em diferentes ambientes
-teste
