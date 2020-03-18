@@ -32,5 +32,10 @@ functions:
           path: login
           method: post
 
+  authorizer:
+    handler: authorizer/handler.authorizer
+    environment:
+      JWT_SECRET: ${ssm:${self:custom.stage}-jwt-secret}
+
 custom:
   stage: ${opt:stage, self:provider.stage} #Se no deploy passar um stage pega o que foi passado como paramentro, se não pega do arquivo mesmo, no campo provider no campo stage
