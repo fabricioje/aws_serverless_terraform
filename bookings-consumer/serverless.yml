@@ -1,0 +1,18 @@
+service: bookings-consumer
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+  stage: dev
+  region: us-east-1
+
+functions:
+  stream_listener:
+    handler: handler.listen
+    role: ${ssm:${self:custom.stage}-bookings-stream-consumer-iam-role}
+    events:
+      - stream: ${ssm:${self:custom.stage}-dynamodb-bookings-stream}
+
+custom:
+  stage: ${opt:stage, self:provider.stage} #Se no deploy passar um stage pega o que foi passado como paramentro, se não pega do arquivo mesmo, no campo provider no campo stage

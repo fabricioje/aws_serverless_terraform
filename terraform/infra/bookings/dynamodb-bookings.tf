@@ -18,7 +18,6 @@ resource "aws_ssm_parameter" "dynamodb_bookings_table" {
   value = "${aws_dynamodb_table.bookings.name}"
 }
 
-
 resource "aws_ssm_parameter" "dynamobd_bookings_stream" {
   name = "${var.environment}-dynamodb-bookings-stream"
   type = "String"
