@@ -15,4 +15,11 @@ module "bookings" {
   environment    = "${var.environment}"
   write_capacity = 1
   read_capacity  = 1
+  #sns_notification = "${module.notifications.notifications_topic_arn}"
+}
+
+module "notifications" {
+  source = "../../infra/notifications"
+  environment = "${var.environment}"
+  
 }
