@@ -7,6 +7,8 @@ resource "aws_dynamodb_table" "bookings" {
   }
   write_capacity = "${var.write_capacity}"
   read_capacity = "${var.read_capacity}"
+  stream_enabled = true
+  stream_view_type = "NEW_IMAGE"
 }
 
 //Cria o recurso no SSM
