@@ -11,10 +11,17 @@ resource "aws_dynamodb_table" "bookings" {
   stream_view_type = "NEW_IMAGE"
 }
 
-//Cria o recurso no SSM
+//Exporta o recurso no SSM
 resource "aws_ssm_parameter" "dynamodb_bookings_table" {
   name = "${var.environment}-dynamodb-bookings-table"
   type = "String"
   value = "${aws_dynamodb_table.bookings.name}"
+}
+
+
+resource "aws_ssm_parameter" "dynamobd_bookings_stream" {
+  name = "${var.environment}-dynamodb-bookings-stream"
+  type = "String"
+  value = "${aws_dynamodb_table.bookings.stream_arn}"
 }
 
