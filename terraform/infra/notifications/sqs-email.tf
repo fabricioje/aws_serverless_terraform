@@ -8,6 +8,13 @@ resource "aws_sqs_queue" "email" {
   })
 }
 
+resource "aws_ssm_parameter" "email-sqs" {
+  name = "${var.environment}-email-sqs"
+  type = "String"
+  value = "${aws_sqs_queue.email.arn}"
+}
+
+
 resource "aws_sqs_queue" "email_dlq" {
   name = "${var.environment}-email-queue-dlq"
 }
