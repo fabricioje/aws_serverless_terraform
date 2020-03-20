@@ -1,1 +1,2 @@
 /terraform/environments/dev/.terraform
+/terraform/environments/prod/.terraform

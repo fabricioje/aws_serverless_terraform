@@ -3,8 +3,8 @@ data "aws_caller_identity" "current" {}
 module "users" {
   source         = "../../infra/users"
   environment    = "${var.environment}"
-  write_capacity = 10
-  read_capacity  = 10
+  write_capacity = 1
+  read_capacity  = 1
   jwt_secret = "${var.jwt_secret}"
   admin_id = "${var.jwt_secret}"
   admin_name = "${var.admin_name}"
