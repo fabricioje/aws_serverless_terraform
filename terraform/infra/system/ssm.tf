@@ -5,7 +5,7 @@ resource "aws_ssm_parameter" "email_from" {
 }
 
 resource "aws_ssm_parameter" "email_from_password" {
-  name = "${var.environment}-email-from-passoword"
+  name = "${var.environment}-email-from-password"
   type = "String"
   value = "${var.email_from_password}"
 }

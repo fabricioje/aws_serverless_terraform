@@ -3,7 +3,7 @@ resource "aws_iam_policy" "email_policy" {
 
   policy = templatefile("${path.module}/templates/lambda-sqs-policy.tpl", {
     action = join("\",\"", ["sqs:ReceiveMessage",
-      "sqs:DeketeMessage",
+      "sqs:DeleteMessage",
       "sqs:GetQueueAttributes"]),
     resource  = "${aws_sqs_queue.email.arn}"
   })
